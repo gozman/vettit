@@ -15,7 +15,7 @@ html {
 body {
   margin-bottom: 44px;
   line-height: 1.57142857;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Raleway', sans-serif !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -73,6 +73,7 @@ footer {
 .navbar-default {
   background-color: #4ec3cd !important;
   border-color: #e0e0e0;
+  font-size: 16px;
 }
 
 .navbar-default .navbar-nav {
@@ -180,7 +181,7 @@ footer {
 .btn {
   font-weight: 600;
   border-radius: 3px;
-  margin: 5px;
+  margin: 10px;
   width: 165px;
 }
 
@@ -322,7 +323,13 @@ textarea {
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
+}
+
+.org-info-column {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -331,20 +338,39 @@ textarea {
   font-size: 16px;
 }
 
+.signup-org-header {
+  padding: 10px;
+  font-weight: 600;
+}
+
 .org-logo {
   border-radius: 3px;
+  max-width: 400px;
+  max-height: 400px;
 }
 
 .mission {
   margin: 20px;
   font-size: 18px;
+  border-top: 1px solid black;
+  padding-top: 5px;
 }
 
 .contact {
   font-size: 18px;
 }
 
+.form-wrapper {
+  margin: auto;
+}
+
+
+/* Miscellaneous Styles */
 text tspan {
   font-size:64px;
   font-weight:bold;
+}
+
+iframe {
+  border: none;
 }
