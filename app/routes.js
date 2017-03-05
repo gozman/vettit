@@ -15,9 +15,17 @@ import Applicants from './components/Applicants';
 export default function getRoutes(store) {
   const ensureAuthenticated = (nextState, replace) => {
     if (!store.getState().auth.token) {
-//      replace('/login');
+      replace('/login');
     }
-  }; 
+  };
+  const ensureOrganizer = (nextState, replace) => {
+    if (!store.getState().auth.token || !store.getState().user || !store.getState().user.isOrg) {
+      console.log("Not an organizer!");
+      console.log(store.getState().auth);
+      console.log(store.getState().user);
+      replace('/');
+    }
+  };
   const skipIfAuthenticated = (nextState, replace) => {
     if (store.getState().auth.token) {
       replace('/');
@@ -38,7 +46,7 @@ export default function getRoutes(store) {
       <Route path="/account" component={Profile} onEnter={ensureAuthenticated} onLeave={clearMessages}/>
       <Route path="/forgot" component={Forgot} onEnter={skipIfAuthenticated} onLeave={clearMessages}/>
       <Route path='/reset/:token' component={Reset} onEnter={skipIfAuthenticated} onLeave={clearMessages}/>
-      <Route path='/org/applicants' component={Applicants} onEnter={ensureAuthenticated} onLeave={clearMessages}/>
+      <Route path='/org/applicants' component={Applicants} onEnter={ensureOrganizer} onLeave={clearMessages}/>
       <Route path="*" component={NotFound} onLeave={clearMessages}/>
     </Route>
   );

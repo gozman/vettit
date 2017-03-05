@@ -107,15 +107,19 @@ exports.signupPost = function(req, res, next) {
     return res.status(400).send(errors);
   }
 
+  console.log("survived assertions! User 2!");
+
   if(req.body.org) {
     //Make sure there are no other admin users. We only support one right now...
     User.findOne({isOrg: true}, function(err, user) {
+      console.log("Searched for admin");
+
       if (user) {
         console.log("Admin... User already created");
         return res.status(400).send({ msg: 'An admin user has already been created.' });
       } else {
-        console.log("Signing up admin...");
         User.findOne({ email: req.body.email }, function(err, user) {
+          console.log("Signing up admin...");
           createUser(req, res, err, user);
         });
       }
@@ -557,4 +561,20 @@ exports.authGoogle = function(req, res) {
 
 exports.authGoogleCallback = function(req, res) {
   res.render('loading', { layout: false });
+};
+
+/*
+* Retrieve heroku organization config variable
+ */
+
+exports.orgInfo = function(req, res, next) {
+  const orgInfo = {
+    orgName: process.env["ORG_NAME"],
+    orgLogo: process.env["ORG_LOGO_URL"],
+    orgWebsite: process.env["ORG_WEBSITE"],
+    orgAddress: process.env["ORG_ADDRESS"],
+    orgPhone: process.env["ORG_PHONE"],
+    orgMission: process.env["ORG_MISSION"]
+  }
+  res.send({ orgInfo });
 };
