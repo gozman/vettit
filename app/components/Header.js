@@ -7,11 +7,6 @@ class Header extends React.Component {
   handleLogout(event) {
     event.preventDefault();
     this.props.dispatch(logout());
-    this.checkClick = this.checkClick.bind(this);
-  }
-
-  checkClick() {
-    console.log('hi i got clicked');
   }
 
   render() {
@@ -25,7 +20,7 @@ class Header extends React.Component {
               {' '}{this.props.user.name || this.props.user.email || this.props.user.id}{' '}
               <i className="caret"></i>
             </a>
-            <ul className="nav-dropdown-menu" onClick={this.checkClick()}>
+            <ul className="nav-dropdown-menu">
               <li><Link to="/account">My Account</Link></li>
               <li><a href="#" onClick={this.handleLogout.bind(this)}>Logout</a></li>
             </ul>
