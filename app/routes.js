@@ -2,6 +2,7 @@ import React from 'react';
 import { IndexRoute, Route } from 'react-router';
 import App from './components/App';
 import Home from './components/Home';
+import Apply from'./components/Apply';
 import Contact from './components/Contact';
 import NotFound from './components/NotFound';
 import Login from './components/Account/Login';
@@ -49,6 +50,7 @@ export default function getRoutes(store) {
       <Route path='/reset/:token' component={Reset} onEnter={skipIfAuthenticated} onLeave={clearMessages}/>
       <Route path='/org/applicants' component={Applicants} onEnter={ensureOrganizer} onLeave={clearMessages}/>
       <Route path='/org/approved' component={Approved} onEnter={ensureOrganizer} onLeave={clearMessages}/>
+      <Route path='/vol/apply' component={Apply} onEnter={skipIfAuthenticated} onLeave={clearMessages}/>
       <Route path="*" component={NotFound} onLeave={clearMessages}/>
     </Route>
   );

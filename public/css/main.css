@@ -367,10 +367,14 @@ textarea {
   font-size: 18px;
 }
 
+.apply-card {
+  margin: 0 auto;
+  width: 50%;
+}
+
 .form-wrapper {
   margin: auto;
 }
-
 
 /* Miscellaneous Styles */
 text tspan {
