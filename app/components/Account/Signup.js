@@ -34,11 +34,11 @@ class Signup extends React.Component {
     return (
       <div className="login-container container">
         <div className="row">
-          <div className="col-md-8">
-            <h3>{orgName}</h3>
+          <div className="col-md-8 org-info-column">
+            <h3 className="signup-org-header">{orgName}</h3>
             <img className="org-logo" src={orgLogo} alt="orgLogo" />
-              <p className="mission"><strong>Mission: </strong>{orgMission}</p>
-              <p className="contact"><strong>Contact Information:</strong></p>
+              <p className="mission"><strong>Mission</strong></p><p>{orgMission}</p>
+              <p className="contact"><strong>Contact Information</strong></p>
                 <ul className="org-info">
                   <li>Phone: {orgPhone}</li>
                   <li>Address: {orgAddress}</li>
@@ -46,7 +46,7 @@ class Signup extends React.Component {
                 </ul>
           </div>
           <div className="col-md-4" id="sign-up">
-            <h3 className="sign-in-title">Sign in</h3>
+            <h3 className="sign-in-title signup-org-header">Sign in</h3>
             <button onClick={this.handleFacebook.bind(this)} className="btn btn-facebook">Sign in with Facebook</button>
             <button onClick={this.handleTwitter.bind(this)} className="btn btn-twitter">Sign in with Twitter</button>
             <button onClick={this.handleGoogle.bind(this)} className="btn btn-google">Sign in with Google+</button>
