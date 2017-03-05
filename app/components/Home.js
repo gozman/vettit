@@ -7,17 +7,19 @@ import RaisedButton from 'material-ui/RaisedButton';
 import {Card, CardActions, CardHeader} from 'material-ui/Card';
 // Needed for onTouchTap
 import injectTapEventPlugin from 'react-tap-event-plugin';
+// Needed to override modal scrollbar
+Modal.defaultStyles.content.overflow = 'hidden';
 
 var Home = React.createClass({
-  getInitialState: function() {
+  getInitialState: function () {
     return { modalIsOpen: false};
   },
 
-  openModal: function() {
+  openModal: function () {
     this.setState({modalIsOpen: true});
   },
 
-  closeModal: function() {
+  closeModal: function () {
     this.setState({modalIsOpen: false});
   },
 
@@ -41,16 +43,18 @@ var Home = React.createClass({
 
   renderForm: function () {
     const style = {
-      zIndex: 1000
+      content : {
+        right: 'auto',
+        top: '75px'
+      }
     }
     return (
       <Modal
         isOpen={this.state.modalIsOpen}
         onRequestClose={this.closeModal}
         contentLabel="Modal" 
-        width={300}
         style={style} >
-        <VolunteerForm iframe='iframe' src="https://form.jotform.com/70626599389172" height="600" width="650" onBlur={this.closeModal}/>
+        <VolunteerForm iframe='iframe' src="https://form.jotform.com/70626599389172" height="500" width="650" onBlur={this.closeModal}/>
       </Modal>
     );
   },
@@ -58,7 +62,7 @@ var Home = React.createClass({
   render() {
     return (
       <div>
-      {this.state.modalIsOpen ? this.renderForm() : this.renderCard() }
+        {this.state.modalIsOpen ? this.renderForm() : this.renderCard()}
       </div>
     );
   }
