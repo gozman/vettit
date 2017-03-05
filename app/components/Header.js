@@ -43,7 +43,7 @@ class Header extends React.Component {
               <span className="icon-bar"></span>
             </button>
             <IndexLink to="/" className="navbar-brand">
-              <svg width="92px" height="32px" viewBox="-87 81 268 93" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/1999/xlink">
+              <svg width="92px" height="32px" viewBox="-87 89 268 93" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/1999/xlink">
                   <defs></defs>
                   <g id="Group" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-87.000000, 81.000000)">
                       <g id="noun_577123_cc" transform="translate(0.000000, 7.000000)" fill-rule="nonzero" fill="#FFFFFF">
