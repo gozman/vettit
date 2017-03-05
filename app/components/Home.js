@@ -4,11 +4,13 @@ import Messages from './Messages';
 import VolunteerForm from './VolunteerForm.react';
 import Modal from 'react-modal';
 import RaisedButton from 'material-ui/RaisedButton';
-import {Card, CardActions, CardHeader} from 'material-ui/Card';
+import {Card, CardActions, CardMedia, CardHeader} from 'material-ui/Card';
 // Needed for onTouchTap
 import injectTapEventPlugin from 'react-tap-event-plugin';
-// Needed to override modal scrollbar
+// Needed to override default modal styles
 Modal.defaultStyles.content.overflow = 'hidden';
+Modal.defaultStyles.content.padding = 'none';
+Modal.defaultStyles.content.margin = '10px';
 
 var Home = React.createClass({
   getInitialState: function () {
@@ -27,6 +29,9 @@ var Home = React.createClass({
     return (
     <div className="apply-card">
       <Card>
+        <CardMedia>
+          <img src="https://www2.palomar.edu/pages/calendar/files/2017/03/Planned-Parenthood-Logo.jpg" />
+        </CardMedia>
         <CardHeader
           title="Planned Parenthood"
           subtitle="Abortion Clinic Escort"
@@ -54,7 +59,7 @@ var Home = React.createClass({
         onRequestClose={this.closeModal}
         contentLabel="Modal" 
         style={style} >
-        <VolunteerForm iframe='iframe' src="https://form.jotform.com/70626599389172" height="500" width="650" onBlur={this.closeModal}/>
+        <VolunteerForm iframe='iframe' src="https://form.jotform.com/70626599389172" height="500" width="700" onBlur={this.closeModal}/>
       </Modal>
     );
   },
