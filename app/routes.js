@@ -24,7 +24,7 @@ export default function getRoutes(store) {
       console.log("Not an organizer!");
       console.log(store.getState().auth);
       console.log(store.getState().user);
-      replace('/');
+//      replace('/');
     }
   };
   const skipIfAuthenticated = (nextState, replace) => {
