@@ -63,3 +63,5 @@ public/js/bundle.js.map
 
 **/*.swp
 
+.DS_Store
+./app/.DS_Store
