@@ -312,3 +312,8 @@ textarea {
 .contact {
   font-size: 18px;
 }
+
+.apply-card {
+  margin: 0 auto;
+  width: 50%;
+}

@@ -23,17 +23,19 @@ var Home = React.createClass({
 
   renderCard: function () {
     return (
-    <Card>
-      <CardHeader
-        title="Planned Parenthood"
-        subtitle="Abortion Clinic Escort"
-        actAsExpander={true}
-        showExpandableButton={true}
-      />
-      <CardActions>
-        <RaisedButton label="Apply" primary={true} onClick={this.openModal}/>
-      </CardActions>
-    </Card>
+    <div className="apply-card">
+      <Card>
+        <CardHeader
+          title="Planned Parenthood"
+          subtitle="Abortion Clinic Escort"
+          actAsExpander={true}
+          showExpandableButton={true}
+        />
+        <CardActions>
+          <RaisedButton label="Apply" primary={true} onClick={this.openModal}/>
+        </CardActions>
+      </Card>
+    </div>
     )
   },
 
@@ -55,7 +57,7 @@ var Home = React.createClass({
 
   render() {
     return (
-      <div className="container-fluid">
+      <div>
       {this.state.modalIsOpen ? this.renderForm() : this.renderCard() }
       </div>
     );
